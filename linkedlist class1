@@ -1,0 +1,92 @@
+package lavanya;
+class LinkedList{
+	Node head;
+	static class Node{
+		int data;
+		Node next;
+		public Node(int data)
+		{
+			this.data=data;
+			next=null;
+		}
+	}
+	public static LinkedList insert(LinkedList list,int data)
+	{
+		Node newnode=new Node(data);
+		newnode.next=null;
+		if(list.head==null)
+		{
+			list.head=newnode;
+			
+		}
+		else
+		{
+			Node temp=list.head;
+			while(temp.next!=null)
+			{
+				temp=temp.next;
+			}
+			temp.next=newnode;
+		}
+		return list;
+	}
+	public static void printlist(LinkedList list)
+	{Node curr=list.head;
+	while(curr !=null)
+	{
+		System.out.print(curr.data+" ");
+		curr=curr.next;
+	}
+	System.out.println("");}
+	public static LinkedList insertbefore(LinkedList list,int data)
+	{
+		Node newd=new Node(data);
+		 newd.next=list.head;
+	    list.head=newd;
+		return list;
+	}
+	
+	
+	
+	public static LinkedList insertatend(LinkedList list,int data)
+	{
+		Node newd=new Node(data);
+
+Node c=list.head;
+while(c.next!=null)
+{
+	c=c.next;
+}
+c.next=newd;
+
+
+		return list;
+	}
+	public static LinkedList delete(LinkedList list)
+	{
+		
+		Node cu=list.head;
+		list.head=cu.next;
+		
+		return list;
+	}
+	
+		
+	
+	public static void main(String args[])
+	{
+		LinkedList list=new LinkedList();
+		list= insert(list, 1);
+		list= insert(list, 2);
+		list= insert(list, 3);
+		list= insert(list, 4);
+		printlist(list);
+		list=insertbefore(list,13);
+		
+		printlist(list);
+		list=insertatend(list,14);
+		printlist(list);
+		list=delete(list);
+		printlist(list);
+	}
+}
