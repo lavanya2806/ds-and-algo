@@ -1,0 +1,77 @@
+
+import java.io.*;
+import java.util.*;
+
+
+
+class LinkedList{
+	Node head;
+	static class Node{
+		int data;
+		Node next;
+		public Node(int data)
+		{
+			this.data=data;
+			next=null;
+		}
+	}
+	public static LinkedList insert(LinkedList list,int data)
+	{
+		Node newnode=new Node(data);
+		newnode.next=null;
+		if(list.head==null)
+		{
+			list.head=newnode;
+			
+		}
+		else
+		{
+			Node temp=list.head;
+			while(temp.next!=null)
+			{
+				temp=temp.next;
+			}
+			temp.next=newnode;
+		}
+		return list;
+	}
+	public static void printlist(LinkedList list)
+	{Node curr=list.head;
+	while(curr !=null)
+	{
+		System.out.print(curr.data+" ");
+		curr=curr.next;
+	}
+	System.out.println("");}
+  public static LinkedList merge(LinkedList list1,LinkedList list2)
+
+{
+ Node t=list1.head;
+while(t.next!=null)
+{
+    t=t.next;
+}
+t.next=list2.head;
+
+return list1;
+
+}
+public static void main(String args[])
+{
+	LinkedList list1=new LinkedList();
+	LinkedList list2=new LinkedList();
+  
+	list1= insert(list1, 1);
+	list1= insert(list1, 2);
+	list1= insert(list1, 3);
+	list1= insert(list1, 4);
+  list2= insert(list2, 5);
+	list2= insert(list2, 6);
+	list2= insert(list2, 7);
+	list2= insert(list2, 8);
+  LinkedList list3=new LinkedList();
+  list3=merge(list1,list2);
+	printlist(list3);
+  
+}}
+
