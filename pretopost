@@ -2,18 +2,7 @@ package intopost;
 import java.util.*;
 
 public class pretopost {
-	static boolean isOperator(char x)  
-	{ 
-	    switch (x)  
-	    { 
-	        case '+': 
-	        case '-': 
-	        case '/': 
-	        case '*': 
-	        return true; 
-	    } 
-	    return false; 
-	} 
+	
 	static String preToPost(String a) 
 	{ 
 		Stack<String> s= new Stack<String>(); 
@@ -21,7 +10,7 @@ public class pretopost {
 	  
 	    for (int i = length - 1; i >= 0; i--)  
 	    {  
-	        if (isOperator(a.charAt(i)))  
+	        if (a.charAt(i)=='-' || a.charAt(i)=='+' ||a.charAt(i)=='/' ||a.charAt(i)=='*' || a.charAt(i)=='^')  
 	        { 
 	            String op1 = s.pop(); 
 	            String op2 = s.pop(); 
@@ -44,4 +33,6 @@ public class pretopost {
 	    System.out.println("Postfix : " + preToPost(a)); 
 	} 
 	} 
+
+
 
