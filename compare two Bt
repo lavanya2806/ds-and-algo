@@ -1,0 +1,45 @@
+import java.util.*;
+public class Main
+{
+    static Scanner sc=null;
+	public static void main(String[] args) 
+	{
+	    sc=new Scanner(System.in);
+	    Node x=new Node(15);
+	    x.left=new Node(20);
+	    x.right=new Node(2);
+	    x.left.right=new Node(23);
+	    x.right.right=new Node(24);
+	    
+	    Node y=new Node(15);
+	    y.left=new Node(20);
+	    y.right=new Node(2);
+	    y.left.right=new Node(23);
+	    y.right.right=new Node(28);
+	    
+	    if(same(x,y))
+	    System.out.println("samee");
+	    else
+	       System.out.println("not samee");
+	    
+	}
+	static boolean same(Node x,Node y)
+	{
+	    if(x==null && y==null)
+	    return true;
+	    return (x.data==y.data) && (same(x.left,y.left) && same(x.right,y.right)) && (x!=null && y!=null);
+	    
+	}
+	
+
+	static class Node
+	{
+	    Node right=null,left=null;
+	    int data;
+	     Node(int data)
+	    {
+	        this.data=data;
+	    }
+	    
+	}
+}
