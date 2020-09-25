@@ -1,0 +1,36 @@
+import java.util.*;
+public class Main
+{
+    static Scanner sc=null;
+	public static void main(String[] args) 
+	{
+	    sc=new Scanner(System.in);
+	    Node x=new Node(15);
+	    deleteb(x);
+	   x=null;
+	    
+	   System.out.println("succesfully deleted the tree");
+	   deleteb(x);
+	}
+	static void deleteb(Node x)
+	{
+	    if(x==null){
+	        System.out.println("empty");
+	    return;}
+	     
+	     x=null;
+	    
+	}
+	
+	
+	static class Node
+	{
+	    Node right=null,left=null;
+	    int data;
+	     Node(int data)
+	    {
+	        this.data=data;
+	    }
+	    
+	}
+}
