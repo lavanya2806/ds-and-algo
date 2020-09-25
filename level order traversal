@@ -1,0 +1,49 @@
+import java.util.*;
+public class Main
+{static Scanner sc=null;
+	public static void main(String[] args) 
+	{
+	   sc=new Scanner(System.in);
+	   Node root=createNode();
+	   levelorder(root);
+	}
+	static Node createNode()
+	{
+	    
+	    Node root=null;
+	    System.out.println("Enter data");
+	    int data=sc.nextInt();
+	    if(data==-1)
+	    return null;
+	    root=new Node(data);
+	    System.out.println("Enter data to left of" + root.data);
+	    root.left=createNode();
+	      System.out.println("Enter data to right of" + root.data);
+	    root.right=createNode();
+	    return root;
+	}
+	static void levelorder(Node root)
+	{
+	    Queue<Node> queue=new ArrayDeque<>();
+	    queue.add(root);
+	    Node curr;
+	    while(!queue.isEmpty())
+	    {
+	        curr=queue.poll();
+	        System.out.println(curr.data +" ");
+	    if(curr.left!=null)  
+	    queue.add(curr.left);
+	    if(curr.right!=null)
+	    queue.add(curr.right);
+	    }
+	}
+	static class Node{
+	    Node left=null,right=null;
+	    int data;
+	    public Node(int data)
+	    {
+	        this.data=data;
+	    }
+	    
+	}
+}
