@@ -1,0 +1,34 @@
+import java.util.*;
+public class Main
+{static Scanner sc=null;
+	public static void main(String[] args) {
+	    sc=new Scanner(System.in);
+	Node root=createNode();
+	}
+	static Node createNode()
+	{
+	    Node root=null;
+	    System.out.println("Enter data");
+	    int n=sc.nextInt();
+	    if(n==-1)
+	    return null;
+	    
+	    root=new Node(n);
+	      System.out.println("Enter data to left of:"+n);
+	      root.left=createNode();
+	      System.out.println("Enter data to right of:"+n);
+	      root.right=createNode();
+	      System.out.println(root.data);
+	    return root;
+	    
+	}
+	static class Node
+	{
+	    Node left,right;
+	    int data;
+	     Node(int data)
+	    {
+	       this.data=data; 
+	    }
+	}
+}
