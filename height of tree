@@ -1,0 +1,40 @@
+import java.util.*;
+public class Main
+{
+    static Scanner sc=null;
+	public static void main(String[] args) 
+	{
+	    sc=new Scanner(System.in);
+	    Node x=new Node(15);
+	    x.left=new Node(20);
+	    x.right=new Node(2);
+	    x.left.right=new Node(23);
+	    x.right.right=new Node(24);
+	    x.right.right.right=new Node(24);
+	    int m=htree(x);
+	    System.out.println(m);
+	}
+	static int  htree(Node root)
+	{
+	    if(root==null)
+	    return 0;
+	    return (max(htree(root.left),htree(root.right)))+1;
+	}
+	static int max(int a,int b)
+	{
+	    if(a>b)
+	    return a;
+	    else return b;
+	}
+
+	static class Node
+	{
+	    Node right=null,left=null;
+	    int data;
+	     Node(int data)
+	    {
+	        this.data=data;
+	    }
+	    
+	}
+}
