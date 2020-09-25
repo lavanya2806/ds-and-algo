@@ -1,0 +1,71 @@
+import java.util.*;
+public class Main
+{
+    static Scanner sc=null;
+	public static void main(String[] args) 
+	{
+	    sc=new Scanner(System.in);
+	  
+	   
+	  Node root= createnode();
+	   inorder(root);
+	   System.out.println();
+	   preorder(root);
+	    System.out.println();
+	   postorder(root);
+	    System.out.println();
+	}
+static Node createnode()
+{
+    Node root=null;
+     System.out.println("Enter data");
+	   int n=sc.nextInt();
+	   if(n==-1)
+	   return null;
+	   
+     root=new Node(n);
+    System.out.println("enter the data to be entered to left of :"+n);
+    root.left=createnode();
+    System.out.println("enter the data to be entered to rightof :"+n);
+    root.right=createnode();
+     return root;
+}
+	static void inorder(Node root)
+	{
+	    if(root==null)
+	    return;
+	    inorder(root.left);
+	    System.out.print(root.data +" ");
+	    inorder(root.right);
+	   
+	}
+		static void preorder(Node root)
+	{
+	    if(root==null)
+	    return;
+	    System.out.print(root.data +" ");
+	    preorder(root.left);
+	    preorder(root.right);
+	   
+	}
+		static void postorder(Node root)
+	{
+	    if(root==null)
+	    return;
+	    postorder(root.left);
+	    postorder(root.right);
+	    System.out.print(root.data +" ");
+	   
+	}
+	
+	static class Node
+	{
+	    Node right=null,left=null;
+	    int data;
+	     Node(int data)
+	    {
+	        this.data=data;
+	    }
+	    
+	}
+}
